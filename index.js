@@ -217,8 +217,14 @@ var MaterialSwitch = React.createClass({
     if (!this.props.enableSlide) return;
 
     if (this.state.state) {
+      if (this.props.onChangeCustom) {
+        this.props.onChangeCustom(false);
+      }
       this.deactivate();
     } else {
+      if (this.props.onChangeCustom) {      
+        this.props.onChangeCustom(true);
+      }
       this.activate();
     }
   },
